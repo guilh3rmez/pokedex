@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex JS</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #dc0a2d; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .pokedex { background: white; padding: 20px; border-radius: 15px; width: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); text-align: center; }
+        
+        .tela { background: #f0f0f0; border: 2px solid #333; border-radius: 10px; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; }
+        .pokemon-img { max-width: 150px; max-height: 150px; display: none; } /* Começa escondida */
+        
+        .info { margin-bottom: 15px; }
+        .numero { color: #aaa; font-weight: bold; font-size: 1.2rem; }
+        .nome { font-size: 1.5rem; text-transform: capitalize; margin: 5px 0; }
+        .tipos { display: flex; justify-content: center; gap: 5px; }
+        .tipo { padding: 5px 10px; border-radius: 5px; color: white; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        
+        /* Cores básicas de tipos */
+        .tipo { background: #777; } /* Cor padrão */
+
+        .busca { display: flex; gap: 5px; }
+        input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
+        button { background: #333; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #555; }
+        
+        .erro { color: red; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="pokedex">
+        <!-- TELA DO POKEMON -->
+        <div class="tela">
+            <img id="img-pokemon" class="pokemon-img" src="" alt="Pokemon">
+            <p id="msg-erro" class="erro">Não encontrado!</p>
+        </div>
+
+        <!-- INFORMAÇÕES -->
+        <div class="info">
+            <span id="numero-pokemon" class="numero"></span>
+            <h2 id="nome-pokemon" class="nome">...</h2>
+            <div id="tipos-pokemon" class="tipos"></div>
+        </div>
+
+        <!-- BUSCA -->
+        <form class="busca" onsubmit="buscarPokemon(event)">
+            <input type="text" id="input-busca" placeholder="Nome ou Número" required>
+            <button type="submit">Go</button>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
